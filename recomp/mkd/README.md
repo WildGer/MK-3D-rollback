@@ -1,56 +1,57 @@
-# Game Title - XBE Recomp
+# Mortal Kombat: Deception - XBE Recomp
 
-An unofficial native PC port of the original Xbox version of Game Title, with extended graphics options and other enhancements.
-
-This port was created using the [Xbox XBE Recomp](https://github.com/TGP482/XboxXBE-Recomp) tool.
+An unofficial native PC port of the original Xbox version of Mortal Kombat: Deception (USA), built with Xbox XBE Recomp.
 
 > [!NOTE]
-> This project does not include any game assets. You must provide the files from your own legally acquired copy of the game to install or build.
+> This project does not include any game assets. You must provide the files from your own legally acquired copy of the game.
 
-## Installation
+## Standalone build
 
-- Put your game files in the `assets` folder. This can be an ISO, or the extracted data files.
-- Run `Game.exe`. The first start compiles the game's code for your PC, this only happens once.
-- Recomp settings can be adjusted in `settings.toml` beside the exe.
+This project builds its own Windows executable:
 
-## Features
+`MKD.exe`
 
-### Display
+You do not need `MK3DLauncher.exe` to start the game. The launcher is optional and can still be used for launcher-managed online/session features.
 
+### Installation / first run
 
-### Graphics
+1. Put your Deception game files in the `assets` folder. This can be an ISO or the extracted game data. If extracted, `default.xbe` must be in `assets` with the game's folders beside it.
+2. Run `build.bat`.
+3. The standalone executable is written to:
 
-### Controller
+   `out\build\release\MKD.exe`
+
+4. Run `MKD.exe` directly. The first start compiles the game's code for your PC if needed.
+5. `settings.toml` beside the executable controls recomp/runtime settings.
+
+For Steam, add `MKD.exe` as a non-Steam game and name the shortcut `Mortal Kombat: Deception`.
+
+## Release package
+
+Run `release.bat` to create `MKD.zip`. The package contains the standalone executable, runtime files, compiler support and an empty `assets` folder for your own game files.
+
+## Controller support
+
 Supports Xbox, PlayStation and Switch controllers, with hot plugging and rumble.
 
-### General
+## System requirements
 
-### Miscellaneous
-- **Boot Splash** - Place a `splash.png` (or `.bmp`) beside the exe to display a splash screen at launch.
+- Windows 10/11 64-bit
+- GPU with Direct3D 12 support
 
-## System Requirements
+## Building requirements
 
-### Minimum
-- **OS**
-  - Windows 10 64-bit
-- **GPU** with support for Direct3D 12
+Install Visual Studio 2022 with:
 
-## Building
-
-### 1. Clone the Repository
-Clone this repository using [Git](https://git-scm.com/).
-
-### 2. Add the Required Game Files
-Place your extracted game data files in the `assets` folder. `default.xbe` must be there, with the game's folders beside it.
-
-### 3. Install Dependencies
-Install Visual Studio 2022 with **Desktop development with C++**, **C++ Clang tools for Windows** and **C++ CMake tools for Windows** (`build.bat` offers to add the last two).
-
-### 4. Build the Project
-Run `build.bat`. The first build recompiles the game and takes a while. The exe is written to `out\build\release`.
+- Desktop development with C++
+- C++ Clang tools for Windows
+- C++ CMake tools for Windows
 
 ## Credits
 
-- [Xbox XBE Recomp](https://github.com/TGP482/XboxXBE-Recomp), the recompiler and runtime this is built on.
-- [XenonRecomp](https://github.com/hedge-dev/XenonRecomp) for the overridable function layout and instruction hooks.
-- [Zydis](https://github.com/zyantific/zydis) for decoding x86 instructions, [toml++](https://github.com/marzer/tomlplusplus) for the configs, [Dear ImGui](https://github.com/ocornut/imgui) for the settings overlay and [SDL](https://github.com/libsdl-org/SDL) for the window, input and controllers.
+- Xbox XBE Recomp
+- XenonRecomp
+- Zydis
+- toml++
+- Dear ImGui
+- SDL
