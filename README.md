@@ -1,5 +1,28 @@
 # MK3D Rollback
 
+> ## Standalone MKD / MKA branch
+>
+> This branch is focused on producing **two independent native Windows executables**:
+>
+> - `MKD.exe` — Mortal Kombat: Deception
+> - `MKA.exe` — Mortal Kombat: Armageddon
+>
+> The goal is to let each game launch directly as its own title, without requiring
+> `MK3DLauncher.exe` as a game selector. This is especially useful for Steam
+> non-Steam libraries, where Deception and Armageddon can each have their own
+> entry, artwork, controller profile and launch target.
+>
+> The launcher and the original project files are intentionally retained. This
+> branch does **not** remove the existing launcher/netplay work; it adds and
+> documents a direct standalone build path for MKD and MKA.
+>
+> Mortal Kombat: Deadly Alliance is intentionally not part of this standalone
+> branch. I already maintain a separate working MKDA native-PC project here:
+> **[WildGer/MKDA-PC](https://github.com/WildGer/MKDA-PC)**.
+>
+> See [docs/STANDALONE.md](docs/STANDALONE.md) for the standalone build layout
+> and commands.
+
 Native PC ports with rollback netplay for the original Xbox versions of the
 "3D era" Mortal Kombat fighters:
 
