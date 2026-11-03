@@ -7,7 +7,7 @@ set "CI=1"
 
 echo.
 echo   MK 3D standalone build
- echo   ======================
+echo   ======================
 echo   Building only Mortal Kombat: Deception and Mortal Kombat: Armageddon.
 echo   MKDA is intentionally not part of this build.
 echo.
