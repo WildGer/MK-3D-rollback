@@ -12,6 +12,11 @@ echo   Building only Mortal Kombat: Deception and Mortal Kombat: Armageddon.
 echo   MKDA is intentionally not part of this build.
 echo.
 
+echo   [SDK] Preparing patched XboxXBERecomp
+powershell -NoProfile -ExecutionPolicy Bypass -File "tools\prepare-xberecomp.ps1"
+if errorlevel 1 goto :fail
+
+echo.
 if not exist "recomp\mkd\assets\default.xbe" (
     echo   [MKD] Missing recomp\mkd\assets\default.xbe
     echo         Put your Mortal Kombat: Deception Xbox files in recomp\mkd\assets\
