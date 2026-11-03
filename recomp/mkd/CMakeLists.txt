@@ -42,6 +42,14 @@ endif()
 # target name = GAME_EXE in build.bat, xbe = GAME_XBE
 add_xbe_image(MKD default.xbe game.toml ${GAME_PARTITIONS} game)
 
+# The current XboxXBERecomp renderer uses _mm_testz_si128(), an SSE4.1 intrinsic.
+# Clang's x86-64 baseline does not enable SSE4.1 automatically, so enable it for
+# the host runtime target. This is deliberately narrower than -march=native so
+# the resulting executable remains portable across SSE4.1-capable x64 systems.
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
+    target_compile_options(MKD PRIVATE -msse4.1)
+endif()
+
 # the executable and the game code DLL share the name MKD and so the PDB name MKD.pdb (the clang driver picks it, a
 # /pdb: option does not stick); the DLL links last and overwrites it. Keep each module's copy in pdb-exe/ and pdb-dll/, which
 # the diagnostics in src/game/diag.cpp add to dbghelp's search path (it matches each module's PDB by GUID).
