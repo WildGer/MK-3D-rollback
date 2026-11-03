@@ -17,10 +17,10 @@ $upstream = 'https://github.com/TGP482/XboxXBERecomp.git'
 # Snapshot used by this project before its local rollback/runtime patch series.
 $baseCommit = 'e0de3e44d10443c1c9aad512f36baf133cdd4a60'
 
-function Run-Git([string[]]$Args) {
-    & git @Args
+function Run-Git([string[]]$GitArgs) {
+    & git @GitArgs
     if ($LASTEXITCODE -ne 0) {
-        throw "git $($Args -join ' ') failed with exit code $LASTEXITCODE"
+        throw "git $($GitArgs -join ' ') failed with exit code $LASTEXITCODE"
     }
 }
 
